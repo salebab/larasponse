@@ -39,7 +39,7 @@ class UserController extends BaseController
     {
         $this->response = $response;
 
-        // Fractal's parseIncludes are available to set here
+        // The Fractal parseIncludes() is available to use here
         $this->response->parseIncludes(Input::get('includes'));
     }
 
