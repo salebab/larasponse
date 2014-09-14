@@ -63,6 +63,11 @@ class Fractal implements Larasponse
     protected function getTransformer($transformer = null)
     {
         return $transformer ?: function($data) {
+            
+            if($data instanceof ArrayableInterface) {
+                return $data->toArray();
+            }
+
             return (array) $data;
         };
     }
