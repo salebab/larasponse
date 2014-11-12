@@ -47,11 +47,13 @@ class Fractal implements Larasponse
 
     public function paginatedCollection(Paginator $paginator, $transformer = null, $resourceKey = null)
     {
-        $paginator->appends(\Request::query());
+        $adaptor = new IlluminatePaginatorAdapter($paginator);
+        
+        $adaptor->appends(\Request::query());
 
         $resource = new Collection($paginator->getCollection(), $this->getTransformer($transformer), $resourceKey);
 
-        $resource->setPaginator(new IlluminatePaginatorAdapter($paginator));
+        $resource->setPaginator($adaptor);
 
         return $this->manager->createData($resource)->toArray();
     }
