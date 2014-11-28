@@ -1,13 +1,13 @@
 <?php  namespace Sorskod\Larasponse\Providers;
 
+use Illuminate\Contracts\Support\Arrayable;
 use Illuminate\Pagination\Paginator;
-use Illuminate\Support\Contracts\ArrayableInterface;
 use League\Fractal\Manager;
-use League\Fractal\Pagination\IlluminatePaginatorAdapter;
 use League\Fractal\Resource\Collection;
 use League\Fractal\Resource\Item;
 use League\Fractal\Serializer\SerializerAbstract;
 use League\Fractal\TransformerAbstract;
+use Sorskod\Larasponse\Adapters\IlluminatePaginatorAdapter;
 use Sorskod\Larasponse\Larasponse;
 
 class Fractal implements Larasponse
@@ -47,9 +47,9 @@ class Fractal implements Larasponse
 
     public function paginatedCollection(Paginator $paginator, $transformer = null, $resourceKey = null)
     {
-        $paginator->appends(\Request::query());
+        //$paginator->appends(\Request::query());
 
-        $resource = new Collection($paginator->getCollection(), $this->getTransformer($transformer), $resourceKey);
+        $resource = new Collection($paginator->toArray(), $this->getTransformer($transformer), $resourceKey);
 
         $resource->setPaginator(new IlluminatePaginatorAdapter($paginator));
 
@@ -64,7 +64,7 @@ class Fractal implements Larasponse
     {
         return $transformer ?: function($data) {
 
-            if($data instanceof ArrayableInterface) {
+            if($data instanceof Arrayable) {
                 return $data->toArray();
             }
 
