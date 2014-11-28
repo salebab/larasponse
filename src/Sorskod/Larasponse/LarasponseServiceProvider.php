@@ -1,6 +1,7 @@
 <?php namespace Sorskod\Larasponse;
 
 use Illuminate\Support\ServiceProvider;
+use Sorskod\Larasponse\Providers\Fractal;
 
 class LarasponseServiceProvider extends ServiceProvider {
 
@@ -19,7 +20,14 @@ class LarasponseServiceProvider extends ServiceProvider {
     public function register()
     {
         $this->app->bind('League\Fractal\Serializer\SerializerAbstract', 'League\Fractal\Serializer\ArraySerializer');
-        $this->app->bind('Sorskod\Larasponse\Larasponse', 'Sorskod\Larasponse\Providers\Fractal');
+
+        $this->app->bind('Sorskod\Larasponse\Larasponse', function($app)
+        {
+            return new Fractal(
+                $app['League\Fractal\Serializer\SerializerAbstract'],
+                $app['Illuminate\Http\Request']
+            );
+        });
     }
 
     /**

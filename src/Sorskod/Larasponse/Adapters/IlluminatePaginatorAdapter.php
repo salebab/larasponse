@@ -1,18 +1,18 @@
 <?php namespace Sorskod\Larasponse\Adapters;
 
 
+use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Pagination\Paginator;
 use League\Fractal\Pagination\PaginatorInterface;
 
 class IlluminatePaginatorAdapter implements PaginatorInterface {
 
-
     /**
-     * @var Paginator
+     * @var LengthAwarePaginator
      */
     private $paginator;
 
-    public function __construct(Paginator $paginator)
+    public function __construct(LengthAwarePaginator $paginator)
     {
 
         $this->paginator = $paginator;
@@ -31,8 +31,7 @@ class IlluminatePaginatorAdapter implements PaginatorInterface {
      */
     public function getLastPage()
     {
-        // NOTE: last page is not available in Paginator
-        return 0;
+        return $this->paginator->lastPage();
     }
 
     /**
@@ -40,8 +39,7 @@ class IlluminatePaginatorAdapter implements PaginatorInterface {
      */
     public function getTotal()
     {
-        // Note: total number is not available in Paginator
-        return 0;
+        return $this->paginator->total();
     }
 
     /**

@@ -1,6 +1,6 @@
 <?php  namespace Sorskod\Larasponse;
 
-use Illuminate\Pagination\Paginator;
+use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 
 interface Larasponse
 {
@@ -29,10 +29,10 @@ interface Larasponse
     public function collection($data, $transformer = null, $resourceKey = null);
 
     /**
-     * @param Paginator $paginator
+     * @param LengthAwarePaginator $paginator
      * @param \League\Fractal\TransformerAbstract|callable $transformer
      * @param string $resourceKey
      * @return mixed
      */
-    public function paginatedCollection(Paginator $paginator, $transformer = null, $resourceKey = null);
+    public function paginatedCollection(LengthAwarePaginator $paginator, $transformer = null, $resourceKey = null);
 }
