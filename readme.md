@@ -6,7 +6,7 @@ Add **Larasponse** to your composer.json file:
 
 ```json
 "require": {
-    "sorskod/larasponse": "~1.0"
+    "sorskod/larasponse": "dev-L5"
 }
 ```
 
