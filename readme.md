@@ -1,4 +1,4 @@
-NOTE: Laravel 5 is still in development but there is working branch that support it - [**dev-L5**](https://github.com/salebab/larasponse/tree/L5)*, Feel free to check the code and contribute.
+**NOTE: Laravel 5 is still in development but there is a working branch which support it - [dev-L5](https://github.com/salebab/larasponse/tree/L5). Feel free to check the code and contribute.**
 
 # Larasponse
 Beautiful and easy to use API responses. It uses [League/Fractal](http://fractal.thephpleague.com) as a default provider.
