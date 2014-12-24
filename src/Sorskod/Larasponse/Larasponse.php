@@ -7,14 +7,12 @@ interface Larasponse
 
     /**
      * @param $includes
-     * @internal param $connection
-     * @return mixed
      */
     public function parseIncludes($includes);
 
     /**
      * @param mixed $data
-     * @param \League\Fractal\TransformerAbstract|callable $transformer
+     * @param \League\Fractal\TransformerAbstract|\Closure $transformer
      * @param string $resourceKey
      * @return array
      */
@@ -22,7 +20,7 @@ interface Larasponse
 
     /**
      * @param $data
-     * @param \League\Fractal\TransformerAbstract|callable $transformer
+     * @param \League\Fractal\TransformerAbstract|\Closure $transformer
      * @param string $resourceKey
      * @return array
      */
@@ -30,7 +28,7 @@ interface Larasponse
 
     /**
      * @param LengthAwarePaginator $paginator
-     * @param \League\Fractal\TransformerAbstract|callable $transformer
+     * @param \League\Fractal\TransformerAbstract|\Closure $transformer
      * @param string $resourceKey
      * @return mixed
      */
