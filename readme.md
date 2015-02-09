@@ -14,7 +14,7 @@ and run `composer update sorskod/larasponse`
 
 ### Registering the Package
 
-Register the service provider within the `providers` array found in `app/config/app.php`:
+Register the service provider within the `providers` array found in `config/app.php`:
 
 ```php
 'providers' => array(
