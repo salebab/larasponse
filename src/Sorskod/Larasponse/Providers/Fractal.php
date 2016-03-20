@@ -34,6 +34,11 @@ class Fractal implements Larasponse
     {
         $this->manager->parseIncludes($includes);
     }
+    
+    public function parseExcludes($excludes)
+    {
+        $this->manager->parseExcludes($excludes);
+    }
 
     public function collection($data, $transformer = null, $resourceKey = null)
     {
