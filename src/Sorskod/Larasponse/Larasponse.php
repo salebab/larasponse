@@ -6,7 +6,7 @@ interface Larasponse
 {
 
     /**
-     * @param $includes
+     * @param array|string $includes Array or csv string of resources to include
      * @internal param $connection
      * @return mixed
      */
