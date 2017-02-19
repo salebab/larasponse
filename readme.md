@@ -65,4 +65,4 @@ class UserController extends BaseController
 
 ## Read more...
 
-* [Using Fractal with Laravel to create an API](http://laravelista.com/laravel-fractal/) by @mabasic
+* [Using Fractal with Laravel to create an API](https://laravelista.com/posts/laravel-fractal) by @mabasic
